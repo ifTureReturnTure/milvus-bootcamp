@@ -10,7 +10,7 @@
     --panel:rgba(18,52,110,0.55); --panel2:rgba(13,42,92,0.9);
     --line:rgba(86,150,240,0.40);
     --cyan:#37d2ff; --cyan2:#5aa9ff;
-    --txt:#eaf2ff; --sub:#a9c4ee; --tool:#8fb6e8;
+    --txt:#eaf2ff; --sub:#a9c4ee; --tool:#9cc0ee;
     --gold:#ffcf6b; --red:#ff7a7a;
   }
   html,body{ background:#04102a; }
@@ -21,111 +21,143 @@
       radial-gradient(1100px 600px at 0% 110%, rgba(20,90,200,0.16), transparent 60%),
       linear-gradient(160deg, var(--navy1), var(--navy2) 55%, var(--navy3));
     font-family:"WenQuanYi Micro Hei","Microsoft YaHei",sans-serif;
-    color:var(--txt); padding:26px 34px 22px;
+    color:var(--txt); padding:24px 32px 20px;
     display:flex; flex-direction:column;
   }
 
-  /* ===== top strip: title + banner ===== */
-  .top{ display:flex; align-items:center; gap:24px; margin-bottom:16px; }
-  .title-wrap{ flex:0 0 auto; }
-  .title{ font-size:30px; font-weight:700; letter-spacing:1px; line-height:1.2;
+  /* ===== top strip ===== */
+  .top{ display:flex; align-items:center; gap:24px; margin-bottom:14px; flex:0 0 auto; }
+  .title{ font-size:32px; font-weight:700; letter-spacing:1px; line-height:1.2;
     background:linear-gradient(90deg,#bfe3ff,#ffffff 45%,#9fd0ff);
     -webkit-background-clip:text; background-clip:text; color:transparent;
     text-shadow:0 2px 16px rgba(60,160,255,0.25); }
   .title-sub{ font-size:11px; color:var(--sub); margin-top:4px; letter-spacing:2px; }
-  .banner{ flex:1; padding:12px 22px; border-radius:12px;
+  .banner{ flex:1; padding:14px 24px; border-radius:12px;
     background:linear-gradient(90deg, rgba(255,180,70,0.16), rgba(55,210,255,0.10));
-    border:1px solid rgba(255,207,107,0.45); display:flex; align-items:center; gap:16px; }
-  .banner .flag{ font-size:12px; font-weight:700; color:#04102a; background:var(--gold);
-    padding:6px 12px; border-radius:8px; white-space:nowrap; text-align:center; line-height:1.4; }
-  .banner .txt{ font-size:15px; line-height:1.6; color:#fff; }
+    border:1px solid rgba(255,207,107,0.45); display:flex; align-items:center; gap:18px; }
+  .banner .flag{ font-size:14px; font-weight:700; color:#04102a; background:var(--gold);
+    padding:8px 14px; border-radius:8px; white-space:nowrap; text-align:center; line-height:1.4; }
+  .banner .txt{ font-size:17px; line-height:1.6; color:#fff; }
   .banner .txt b{ color:var(--gold); }
 
-  /* ===== columns row ===== */
+  /* ===== columns ===== */
   .columns{ flex:1; display:flex; align-items:stretch; gap:0; min-height:0; }
   .col{ background:var(--panel); border:1px solid var(--line); border-radius:14px;
-    padding:14px 12px 12px; display:flex; flex-direction:column; min-height:0;
+    padding:14px 12px; display:flex; flex-direction:column; min-height:0;
     box-shadow:inset 0 0 40px rgba(40,110,220,0.07); }
   .col.key{ border:1.6px solid rgba(55,210,255,0.7);
     box-shadow:0 0 0 1px rgba(55,210,255,0.15), inset 0 0 60px rgba(55,160,255,0.12); }
   .col.scene{ border-color:rgba(255,207,107,0.55); }
-  .chead{ text-align:center; margin-bottom:10px; flex:0 0 auto; }
-  .chead .cn{ font-size:16px; font-weight:700; color:#fff; }
+  .chead{ text-align:center; margin-bottom:12px; flex:0 0 auto; }
+  .chead .cn{ font-size:19px; font-weight:700; color:#fff; }
   .col.scene .chead .cn{ color:var(--gold); }
   .col.key .chead .cn{ color:var(--cyan); }
-  .chead .ce{ font-size:10px; color:var(--tool); margin-top:2px; letter-spacing:1px; }
-  .chead .part{ display:inline-block; font-size:10px; color:var(--sub);
-    border:1px solid var(--line); border-radius:6px; padding:1px 8px; margin-top:5px; }
-  .cbody{ flex:1; min-height:0; overflow:hidden; display:flex; flex-direction:column; gap:8px; }
+  .chead .ce{ font-size:11px; color:var(--tool); margin-top:3px; letter-spacing:1px; }
+  .chead .part{ display:inline-block; font-size:11px; color:var(--sub);
+    border:1px solid var(--line); border-radius:6px; padding:2px 9px; margin-top:6px; }
+  .cbody{ flex:1; min-height:0; display:flex; flex-direction:column; }
 
-  /* arrow between columns */
-  .arrow{ flex:0 0 34px; display:flex; flex-direction:column; align-items:center; justify-content:center; color:var(--cyan); }
-  .arrow .a{ font-size:22px; line-height:1; text-shadow:0 0 10px rgba(55,210,255,0.6); }
-  .arrow .t{ font-size:10px; color:var(--sub); writing-mode:vertical-rl; margin-top:6px; letter-spacing:1px; }
+  /* arrow */
+  .arrow{ flex:0 0 38px; display:flex; flex-direction:column; align-items:center; justify-content:center; color:var(--cyan); }
+  .arrow .a{ font-size:26px; line-height:1; text-shadow:0 0 10px rgba(55,210,255,0.6); }
+  .arrow .t{ font-size:11px; color:var(--sub); writing-mode:vertical-rl; margin-top:8px; letter-spacing:1px; }
 
   /* widths */
-  .w-scene{ flex:1.05; } .w-proof{ flex:0.85; } .w-mat{ flex:1.45; }
-  .w-base{ flex:0.95; } .w-cap{ flex:1.75; } .w-task{ flex:0.95; }
+  .w-scene{ flex:1.05; } .w-proof{ flex:0.82; } .w-mat{ flex:1.5; }
+  .w-base{ flex:0.95; } .w-cap{ flex:1.85; } .w-task{ flex:0.95; }
 
-  /* generic blocks */
-  .card{ background:var(--panel2); border:1px solid var(--line); border-radius:10px; padding:10px 11px; }
-  .card.lead{ background:linear-gradient(180deg,rgba(255,200,90,0.26),rgba(255,170,60,0.10));
-    border-color:rgba(255,207,107,0.6); }
-  .card .ct{ font-size:14px; font-weight:700; color:#fff; }
-  .card .cs{ font-size:11px; color:var(--sub); margin-top:4px; line-height:1.5; }
-  .note{ font-size:11px; color:#cfe6ff; line-height:1.6; margin-top:auto;
-    background:rgba(55,160,255,0.10); border:1px dashed var(--line); border-radius:8px; padding:8px 10px; }
-  .note.gold{ color:#ffe6b0; background:rgba(255,200,90,0.10); border-color:rgba(255,207,107,0.4); }
+  /* ===== col1 scene ===== */
+  .scene-body{ justify-content:space-between; gap:14px; }
+  .scene-main{ flex:2.4; border-radius:12px; padding:18px 16px;
+    background:linear-gradient(165deg,rgba(255,200,90,0.28),rgba(255,160,50,0.10));
+    border:1.4px solid rgba(255,207,107,0.65);
+    display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; }
+  .scene-main .star{ font-size:26px; color:var(--gold); }
+  .scene-main .nm{ font-size:30px; font-weight:800; color:#fff; margin:8px 0 10px; letter-spacing:1px; }
+  .scene-main .ds{ font-size:16px; color:#ffe6b0; line-height:1.6; }
+  .scene-plan{ flex:1.5; border-radius:12px; padding:14px 16px;
+    background:var(--panel2); border:1px solid var(--line);
+    display:flex; flex-direction:column; justify-content:center; }
+  .scene-plan .ph{ font-size:15px; font-weight:700; color:var(--sub); margin-bottom:10px; text-align:center; }
+  .scene-plan .pl{ font-size:17px; color:#dcebff; line-height:2.0; text-align:center; }
+  .scene-note{ flex:1.2; border-radius:10px; padding:14px; font-size:14px; line-height:1.7;
+    color:#ffe6b0; background:rgba(255,200,90,0.12); border:1px dashed rgba(255,207,107,0.45);
+    display:flex; align-items:center; }
 
-  /* proof chips */
-  .pchip{ font-size:13px; padding:9px 10px; border-radius:9px; text-align:center; font-weight:600;
-    background:linear-gradient(180deg,rgba(55,160,255,0.22),rgba(55,160,255,0.08));
-    border:1px solid rgba(90,169,255,0.5); color:#eaf4ff; }
-  .pchip.todo{ background:rgba(255,255,255,0.04); border:1px dashed rgba(140,180,235,0.45); color:var(--sub); font-weight:400; }
+  /* ===== col2 proof ===== */
+  .proof-body{ justify-content:space-between; gap:12px; }
+  .pchip{ flex:1; display:flex; align-items:center; justify-content:center;
+    font-size:19px; font-weight:700; border-radius:11px;
+    background:linear-gradient(180deg,rgba(55,160,255,0.26),rgba(55,160,255,0.10));
+    border:1px solid rgba(90,169,255,0.55); color:#eaf4ff; }
+  .pchip.todo{ background:rgba(255,255,255,0.04); border:1px dashed rgba(140,180,235,0.45); color:var(--sub); font-weight:500; }
 
-  /* material groups */
-  .mgrp .mh{ font-size:11px; font-weight:700; color:var(--cyan); margin:2px 0 3px; }
-  .mrow{ font-size:10.5px; color:var(--txt); line-height:1.5; display:flex; justify-content:space-between; gap:6px; }
-  .mrow .sys{ color:var(--gold); font-weight:700; white-space:nowrap; }
+  /* ===== col3 materials ===== */
+  .mat-body{ justify-content:space-between; gap:6px; }
+  .mgrp{ background:var(--panel2); border:1px solid var(--line); border-radius:9px; padding:8px 11px; }
+  .mgrp .mh{ font-size:15px; font-weight:700; color:var(--cyan); margin-bottom:5px; }
+  .mrow{ font-size:14px; color:#f1f6ff; line-height:1.55; }
+  .mrow .dot{ color:var(--gold); margin:0 5px; font-size:10px; vertical-align:middle; }
+  .mrow .sys{ color:var(--gold); font-weight:700; font-size:12.5px; }
   .mrow.todo{ color:var(--sub); font-style:italic; }
 
-  /* task chips */
-  .tchip{ font-size:13px; padding:9px 10px; border-radius:9px; text-align:center; font-weight:700;
-    background:linear-gradient(180deg,rgba(255,200,90,0.26),rgba(255,170,60,0.10));
+  /* ===== col4 base ===== */
+  .base-body{ justify-content:space-between; gap:14px; }
+  .base-conn{ flex:1.3; border-radius:12px; padding:16px; background:var(--panel2); border:1px solid var(--line);
+    display:flex; flex-direction:column; justify-content:center; }
+  .base-conn .bh{ font-size:15px; font-weight:700; color:var(--cyan); margin-bottom:12px; text-align:center; }
+  .base-conn .bl{ font-size:17px; color:#dcebff; line-height:2.1; text-align:center; }
+  .base-core{ flex:1.4; border-radius:12px; padding:18px; text-align:center;
+    background:linear-gradient(180deg,rgba(55,160,255,0.32),rgba(20,60,130,0.92));
+    border:1.5px solid var(--cyan); display:flex; flex-direction:column; justify-content:center; }
+  .base-core .t{ font-size:24px; font-weight:800; color:#fff; }
+  .base-core .s{ font-size:14px; color:#cfe6ff; margin-top:8px; line-height:1.6; }
+  .base-note{ flex:1; border-radius:10px; padding:14px; font-size:14px; line-height:1.7; color:#cfe6ff;
+    background:rgba(55,160,255,0.10); border:1px dashed var(--line); display:flex; align-items:center; }
+
+  /* ===== col5 capabilities ===== */
+  .caps{ flex:1; display:grid; grid-template-columns:1fr 1fr; grid-template-rows:repeat(4,1fr); gap:12px; }
+  .cap{ background:linear-gradient(165deg,rgba(20,58,120,0.96),rgba(12,36,82,0.96));
+    border:1px solid rgba(90,169,255,0.5); border-radius:11px; padding:10px 16px; position:relative;
+    display:flex; flex-direction:column; justify-content:center; }
+  .cap::before{ content:""; position:absolute; left:0; top:0; bottom:0; width:4px;
+    background:linear-gradient(180deg,var(--cyan),var(--cyan2)); border-radius:4px 0 0 4px; }
+  .cap .num{ position:absolute; right:12px; top:8px; font-size:22px; font-weight:800; color:rgba(120,180,255,0.22); }
+  .cap .cn2{ font-size:21px; font-weight:700; color:#fff; }
+  .cap .tl{ font-size:12.5px; color:var(--tool); margin-top:7px; line-height:1.5; }
+  .cap.flywheel{ border-color:rgba(255,207,107,0.65); }
+  .cap.flywheel .cn2{ color:var(--gold); }
+  .cap.flywheel::before{ background:linear-gradient(180deg,var(--gold),#ffb24d); }
+
+  /* ===== col6 task ===== */
+  .task-body{ justify-content:space-between; gap:11px; }
+  .tchip{ flex:1; display:flex; align-items:center; justify-content:center;
+    font-size:18px; font-weight:700; border-radius:11px;
+    background:linear-gradient(180deg,rgba(255,200,90,0.28),rgba(255,170,60,0.10));
     border:1px solid rgba(255,207,107,0.6); color:#fff; }
   .tchip.ghost{ background:rgba(255,255,255,0.04); border:1px dashed rgba(140,180,235,0.45);
-    color:var(--sub); font-weight:500; }
+    color:var(--sub); font-weight:500; font-size:15px; }
+  .task-note{ flex:0.9; border-radius:10px; padding:12px; font-size:15px; line-height:1.6; font-weight:700;
+    color:#ffe6b0; background:rgba(255,200,90,0.12); border:1px dashed rgba(255,207,107,0.45);
+    display:flex; align-items:center; justify-content:center; text-align:center; }
 
-  /* capability cards grid */
-  .caps{ display:grid; grid-template-columns:1fr 1fr; gap:8px; flex:1; }
-  .cap{ background:linear-gradient(165deg,rgba(20,58,120,0.95),rgba(12,36,82,0.95));
-    border:1px solid rgba(90,169,255,0.45); border-radius:10px; padding:8px 10px; position:relative; }
-  .cap::before{ content:""; position:absolute; left:0; top:0; bottom:0; width:3px;
-    background:linear-gradient(180deg,var(--cyan),var(--cyan2)); border-radius:3px 0 0 3px; }
-  .cap .num{ position:absolute; right:8px; top:5px; font-size:16px; font-weight:800; color:rgba(120,180,255,0.22); }
-  .cap .cn2{ font-size:14px; font-weight:700; color:#fff; }
-  .cap .tl{ font-size:9.5px; color:var(--tool); margin-top:4px; line-height:1.5; }
-  .cap.flywheel{ border-color:rgba(255,207,107,0.6); }
-  .cap.flywheel .cn2{ color:var(--gold); }
-
-  /* ===== bottom audit band ===== */
-  .bottom{ flex:0 0 auto; margin-top:14px; display:flex; align-items:center; gap:16px;
-    padding:12px 20px; border-radius:12px;
+  /* ===== bottom band ===== */
+  .bottom{ flex:0 0 auto; margin-top:12px; display:flex; align-items:center; gap:18px;
+    padding:13px 22px; border-radius:12px;
     background:linear-gradient(90deg, rgba(55,160,255,0.18), rgba(20,60,130,0.6));
     border:1.4px solid var(--cyan); }
-  .bottom .blab{ font-size:15px; font-weight:700; color:#fff; white-space:nowrap;
+  .bottom .blab{ font-size:17px; font-weight:700; color:#fff; white-space:nowrap;
     text-shadow:0 0 10px rgba(55,210,255,0.5); }
-  .bottom .bt2{ font-size:12px; color:#cfe6ff; }
-  .bottom .fw{ flex:1; display:flex; align-items:center; gap:10px; justify-content:flex-end; }
+  .bottom .bt2{ font-size:13px; color:#cfe6ff; }
+  .bottom .fw{ flex:1; display:flex; align-items:center; gap:12px; justify-content:flex-end; }
   .bottom .fwline{ flex:1; height:0; border-top:2px dashed var(--red); position:relative; }
-  .bottom .fwline::before{ content:"◀"; position:absolute; left:-2px; top:-9px; color:var(--red); font-size:14px; }
-  .bottom .fwtxt{ font-size:11.5px; color:var(--red); font-weight:700; white-space:nowrap; }
+  .bottom .fwline::before{ content:"\25C0"; position:absolute; left:-2px; top:-10px; color:var(--red); font-size:15px; }
+  .bottom .fwtxt{ font-size:13px; color:var(--red); font-weight:700; white-space:nowrap; }
 </style>
 </head>
 <body>
 <div class="page">
 
-  <!-- top -->
   <div class="top">
     <div class="title-wrap">
       <div class="title">档案利用智能体平台业务价值流程图</div>
@@ -137,30 +169,30 @@
     </div>
   </div>
 
-  <!-- columns left -> right -->
   <div class="columns">
 
-    <!-- 1. 业务场景 -->
+    <!-- 1 业务场景 -->
     <div class="col scene w-scene">
-      <div class="chead"><div class="cn">业务场景</div><div class="ce">使用部门</div><div class="part">Part 4</div></div>
-      <div class="cbody">
-        <div class="card lead">
-          <div class="ct">★ 产M投标</div>
-          <div class="cs">产品市场部 · 当前主力交付场景</div>
+      <div class="chead"><div class="cn">业务场景</div><div class="ce">使用部门 · Part 4</div></div>
+      <div class="cbody scene-body">
+        <div class="scene-main">
+          <div class="star">★</div>
+          <div class="nm">产M投标</div>
+          <div class="ds">产品市场部<br>当前主力交付场景</div>
         </div>
-        <div class="card">
-          <div class="ct" style="font-size:12px;color:var(--sub)">规划拓展场景</div>
-          <div class="cs">应申及认证<br>诉讼<br>内控审计</div>
+        <div class="scene-plan">
+          <div class="ph">规划拓展场景</div>
+          <div class="pl">应申及认证<br>诉讼<br>内控审计</div>
         </div>
-        <div class="note gold">业务价值：投标材料一键归集 · 订单发票智能对账 · 能力证明合规成材，提质增效</div>
+        <div class="scene-note">业务价值：材料一键归集 · 智能对账 · 合规成材，提质增效</div>
       </div>
     </div>
     <div class="arrow"><div class="a">▶</div><div class="t">提出证明需求</div></div>
 
-    <!-- 2. 所需证明 -->
+    <!-- 2 所需证明 -->
     <div class="col w-proof">
       <div class="chead"><div class="cn">所需证明</div><div class="ce">产M投标</div></div>
-      <div class="cbody">
+      <div class="cbody proof-body">
         <div class="pchip">供货能力</div>
         <div class="pchip">销售业绩</div>
         <div class="pchip">生产能力</div>
@@ -171,65 +203,60 @@
     </div>
     <div class="arrow"><div class="a">▶</div><div class="t">归集材料</div></div>
 
-    <!-- 3. 材料 & 来源系统 -->
+    <!-- 3 材料 & 来源 -->
     <div class="col w-mat">
       <div class="chead"><div class="cn">档案材料 · 来源系统</div><div class="ce">Materials &amp; Source Systems</div></div>
-      <div class="cbody" style="gap:6px;">
+      <div class="cbody mat-body">
         <div class="mgrp"><div class="mh">供货能力</div>
-          <div class="mrow"><span>供货保证协议</span><span class="sys">ISCP</span></div>
-          <div class="mrow"><span>采购平台电子化协议</span><span class="sys">ISCP</span></div>
-          <div class="mrow"><span>采购合同/框架协议及订单</span><span class="sys">ISCP</span></div>
-          <div class="mrow"><span>进口报关单</span><span class="sys">GCM</span></div>
-          <div class="mrow"><span>发票/扫描件</span><span class="sys">FOL</span></div>
+          <div class="mrow">供货保证协议<span class="dot">●</span><span class="sys">ISCP</span></div>
+          <div class="mrow">采购平台电子化协议<span class="dot">●</span><span class="sys">ISCP</span></div>
+          <div class="mrow">采购合同/框架协议及订单<span class="dot">●</span><span class="sys">ISCP</span></div>
+          <div class="mrow">进口报关单<span class="dot">●</span><span class="sys">GCM</span>　发票/扫描件<span class="dot">●</span><span class="sys">FOL</span></div>
         </div>
         <div class="mgrp"><div class="mh">销售业绩</div>
-          <div class="mrow"><span>销售合同/框架合同</span><span class="sys">CMS</span></div>
-          <div class="mrow"><span>发票/扫描件</span><span class="sys">FOL</span></div>
+          <div class="mrow">销售合同/框架合同<span class="dot">●</span><span class="sys">CMS</span>　发票/扫描件<span class="dot">●</span><span class="sys">FOL</span></div>
         </div>
         <div class="mgrp"><div class="mh">生产能力</div>
-          <div class="mrow"><span>自有工厂营业执照</span><span class="sys">ICenter/udm</span></div>
-          <div class="mrow"><span>土地/房屋产权证明</span><span class="sys">ICenter/udm</span></div>
-          <div class="mrow"><span>房屋租赁合同</span><span class="sys">ISCP</span></div>
-          <div class="mrow"><span>房屋租赁发票</span><span class="sys">FOL</span></div>
-          <div class="mrow"><span>生产检测设备采购合同</span><span class="sys">ISCP</span></div>
-          <div class="mrow"><span>发票/扫描件</span><span class="sys">FOL</span></div>
+          <div class="mrow">自有工厂营业执照<span class="dot">●</span><span class="sys">ICenter/udm</span></div>
+          <div class="mrow">土地/房屋产权证明<span class="dot">●</span><span class="sys">ICenter/udm</span></div>
+          <div class="mrow">房屋租赁合同<span class="dot">●</span><span class="sys">ISCP</span>　房屋租赁发票<span class="dot">●</span><span class="sys">FOL</span></div>
+          <div class="mrow">生产检测设备采购合同<span class="dot">●</span><span class="sys">ISCP</span>　发票/扫描件<span class="dot">●</span><span class="sys">FOL</span></div>
         </div>
         <div class="mgrp"><div class="mh">专利证明</div>
-          <div class="mrow"><span>专利证书</span><span class="sys">IPR</span></div>
-          <div class="mrow"><span>发明人劳动合同</span><span class="sys">简谱</span></div>
+          <div class="mrow">专利证书<span class="dot">●</span><span class="sys">IPR</span>　发明人劳动合同<span class="dot">●</span><span class="sys">简谱</span></div>
         </div>
         <div class="mgrp"><div class="mh">资质认证</div>
-          <div class="mrow"><span>电信设备进网许可证</span><span class="sys">TSM/ZRS/PDM等</span></div>
-          <div class="mrow"><span>无线电发射设备型号核准证及测试报告</span><span class="sys">同上</span></div>
-          <div class="mrow"><span>其他各项资质证书</span><span class="sys">同上</span></div>
+          <div class="mrow">电信设备进网许可证<span class="dot">●</span><span class="sys">TSM/ZRS/PDM等</span></div>
+          <div class="mrow">无线电发射设备型号核准证及测试报告<span class="dot">●</span><span class="sys">TSM等</span></div>
+          <div class="mrow">其他各项资质证书<span class="dot">●</span><span class="sys">TSM等</span></div>
         </div>
         <div class="mgrp"><div class="mh">售后服务能力</div>
-          <div class="mrow todo"><span>材料待补充 ……</span><span></span></div>
+          <div class="mrow todo">材料待补充 ……</div>
         </div>
       </div>
     </div>
     <div class="arrow"><div class="a">▶</div><div class="t">汇聚归档</div></div>
 
-    <!-- 4. 连接线 + 数据底座 -->
+    <!-- 4 数据底座 -->
     <div class="col w-base">
-      <div class="chead"><div class="cn">汇聚归档 · 数据底座</div><div class="part">Part 1</div></div>
-      <div class="cbody">
-        <div class="card">
-          <div class="ct" style="font-size:12px;color:var(--cyan)">连接线（归集方式）</div>
-          <div class="cs">系统对接<br>自动归档机器人<br>数据湖 + 统一文档平台</div>
+      <div class="chead"><div class="cn">汇聚归档 · 数据底座</div><div class="ce">Part 1</div></div>
+      <div class="cbody base-body">
+        <div class="base-conn">
+          <div class="bh">连接线（归集方式）</div>
+          <div class="bl">系统对接<br>自动归档机器人<br>数据湖 + 统一文档平台</div>
         </div>
-        <div class="card lead" style="background:linear-gradient(180deg,rgba(55,160,255,0.28),rgba(20,60,130,0.9));border-color:var(--cyan);text-align:center;">
-          <div class="ct">档案管理系统</div>
-          <div class="cs">统一数据底座<br>大数据与语料库沉淀</div>
+        <div class="base-core">
+          <div class="t">档案管理系统</div>
+          <div class="s">统一数据底座<br>大数据与语料库沉淀</div>
         </div>
-        <div class="note">多源档案统一汇聚、自动归档，形成可被智能体调用的高质量数据资产</div>
+        <div class="base-note">多源档案统一汇聚、自动归档，形成可被智能体调用的高质量数据资产</div>
       </div>
     </div>
     <div class="arrow"><div class="a">▶</div><div class="t">调用知识</div></div>
 
-    <!-- 5. 核心能力 -->
+    <!-- 5 核心能力 -->
     <div class="col key w-cap">
-      <div class="chead"><div class="cn">档案利用智能体平台 · 八项核心能力</div><div class="ce">支撑工具见卡片小字</div><div class="part">Part 3 · 关键</div></div>
+      <div class="chead"><div class="cn">档案利用智能体平台 · 八项核心能力</div><div class="ce">支撑工具见卡片小字 · Part 3 关键</div></div>
       <div class="caps">
         <div class="cap"><div class="num">01</div><div class="cn2">多模态档案识别</div><div class="tl">OCR · 多模态大模型</div></div>
         <div class="cap"><div class="num">02</div><div class="cn2">智能标注与抽取</div><div class="tl">解析清洗 · NLP · 抽取工具</div></div>
@@ -243,28 +270,27 @@
     </div>
     <div class="arrow"><div class="a">▶</div><div class="t">赋能业务</div></div>
 
-    <!-- 6. 任务场景 -->
+    <!-- 6 任务场景 -->
     <div class="col scene w-task">
-      <div class="chead"><div class="cn">任务场景</div><div class="ce">招标/取证任务</div><div class="part">Part 4</div></div>
-      <div class="cbody">
+      <div class="chead"><div class="cn">任务场景</div><div class="ce">招标/取证任务 · Part 4</div></div>
+      <div class="cbody task-body">
         <div class="tchip">电信招标</div>
         <div class="tchip">移动招标</div>
         <div class="tchip">联通招标</div>
         <div class="tchip">铁塔招标</div>
         <div class="tchip ghost">外部审计取证（应申）</div>
         <div class="tchip ghost">法院等（诉讼）</div>
-        <div class="note gold">稳定支撑公司主营业务</div>
+        <div class="task-note">稳定支撑公司主营业务</div>
       </div>
     </div>
 
-  </div><!-- /columns -->
+  </div>
 
-  <!-- bottom audit & flywheel band -->
   <div class="bottom">
     <div class="blab">◈ 审计评测与数据闭环</div>
     <div class="bt2">全程追溯与迭代：回流学习 · 可解释日志 · 负样本飞轮</div>
     <div class="fw">
-      <div class="fwtxt">负样本飞轮 ▶</div>
+      <div class="fwtxt">负样本飞轮</div>
       <div class="fwline"></div>
       <div class="fwtxt">人工复核 / 错配漏配回流为负样本集与测试集，持续迭代优化</div>
     </div>
