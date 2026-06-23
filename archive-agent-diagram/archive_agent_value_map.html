@@ -88,20 +88,24 @@
   .pchip.todo{ background:rgba(255,255,255,0.04); border:1px dashed rgba(140,180,235,0.45); color:var(--sub); font-weight:500; }
 
   /* ===== col3 materials ===== */
-  .mat-body{ justify-content:space-between; gap:6px; }
-  .mgrp{ background:var(--panel2); border:1px solid var(--line); border-radius:9px; padding:8px 11px; }
-  .mgrp .mh{ font-size:15px; font-weight:700; color:var(--cyan); margin-bottom:5px; }
-  .mrow{ font-size:14px; color:#f1f6ff; line-height:1.55; }
-  .mrow .dot{ color:var(--gold); margin:0 5px; font-size:10px; vertical-align:middle; }
-  .mrow .sys{ color:var(--gold); font-weight:700; font-size:12.5px; }
-  .mrow.todo{ color:var(--sub); font-style:italic; }
+  .mat-body{ justify-content:space-between; gap:8px; }
+  .mgrp{ background:rgba(10,35,80,0.5); border:1px solid var(--line); border-radius:10px;
+    padding:8px 9px; display:flex; flex-direction:column; gap:5px; }
+  .mgrp .mh{ font-size:14px; font-weight:700; color:var(--cyan); margin-bottom:1px; padding-left:2px; }
+  .mrow{ font-size:14.5px; color:#f1f6ff; line-height:1.3; border-radius:7px; padding:7px 10px;
+    background:linear-gradient(180deg,rgba(55,160,255,0.18),rgba(55,160,255,0.06));
+    border:1px solid rgba(90,169,255,0.42); }
+  .mrow .dot{ color:var(--gold); margin:0 6px; font-size:9px; vertical-align:middle; }
+  .mrow .sys{ color:var(--gold); font-weight:700; font-size:13px; }
+  .mrow.todo{ color:var(--sub); font-style:italic; background:rgba(255,255,255,0.04);
+    border:1px dashed rgba(140,180,235,0.4); }
 
   /* ===== col4 base ===== */
   .base-body{ justify-content:space-between; gap:14px; }
-  .base-conn{ flex:1.3; border-radius:12px; padding:16px; background:var(--panel2); border:1px solid var(--line);
-    display:flex; flex-direction:column; justify-content:center; }
-  .base-conn .bh{ font-size:15px; font-weight:700; color:var(--cyan); margin-bottom:12px; text-align:center; }
-  .base-conn .bl{ font-size:17px; color:#dcebff; line-height:2.1; text-align:center; }
+  .base-conn{ flex:1.3; display:flex; flex-direction:column; justify-content:center; gap:12px; }
+  .conn-box{ border-radius:11px; padding:14px 12px; text-align:center; font-size:17px; font-weight:700; color:#eaf4ff;
+    background:linear-gradient(180deg,rgba(55,160,255,0.22),rgba(55,160,255,0.08));
+    border:1px solid rgba(90,169,255,0.5); line-height:1.4; }
   .base-core{ flex:1.4; border-radius:12px; padding:18px; text-align:center;
     background:linear-gradient(180deg,rgba(55,160,255,0.32),rgba(20,60,130,0.92));
     border:1.5px solid var(--cyan); display:flex; flex-direction:column; justify-content:center; }
@@ -127,11 +131,11 @@
   /* ===== col6 task ===== */
   .task-body{ justify-content:space-between; gap:11px; }
   .tchip{ flex:1; display:flex; align-items:center; justify-content:center;
-    font-size:18px; font-weight:700; border-radius:11px;
+    font-size:23px; font-weight:700; border-radius:11px;
     background:linear-gradient(180deg,rgba(255,200,90,0.28),rgba(255,170,60,0.10));
     border:1px solid rgba(255,207,107,0.6); color:#fff; }
   .tchip.ghost{ background:rgba(255,255,255,0.04); border:1px dashed rgba(140,180,235,0.45);
-    color:var(--sub); font-weight:500; font-size:15px; }
+    color:var(--sub); font-weight:500; font-size:18px; }
   .task-note{ flex:0.9; border-radius:10px; padding:12px; font-size:15px; line-height:1.6; font-weight:700;
     color:#ffe6b0; background:rgba(255,200,90,0.12); border:1px dashed rgba(255,207,107,0.45);
     display:flex; align-items:center; justify-content:center; text-align:center; }
@@ -150,12 +154,12 @@
 
     <!-- 1 业务场景 -->
     <div class="col scene w-scene">
-      <div class="chead"><div class="cn">业务场景</div><div class="ce">使用部门 · Part 4</div></div>
+      <div class="chead"><div class="cn">业务场景</div></div>
       <div class="cbody scene-body">
         <div class="scene-main">
           <div class="star">★</div>
           <div class="nm">产M投标</div>
-          <div class="ds">产品市场部<br>当前主力交付场景</div>
+          <div class="ds">当前主力交付场景</div>
         </div>
         <div class="scene-plan">
           <div class="ph">规划拓展场景</div>
@@ -168,7 +172,7 @@
 
     <!-- 2 所需证明 -->
     <div class="col w-proof">
-      <div class="chead"><div class="cn">所需证明</div><div class="ce">产M投标</div></div>
+      <div class="chead"><div class="cn">所需证明</div></div>
       <div class="cbody proof-body">
         <div class="pchip">供货能力</div>
         <div class="pchip">销售业绩</div>
@@ -182,7 +186,7 @@
 
     <!-- 3 材料 & 来源 -->
     <div class="col w-mat">
-      <div class="chead"><div class="cn">档案材料 · 来源系统</div><div class="ce">Materials &amp; Source Systems</div></div>
+      <div class="chead"><div class="cn">档案材料 · 来源系统</div></div>
       <div class="cbody mat-body">
         <div class="mgrp"><div class="mh">供货能力</div>
           <div class="mrow">供货保证协议<span class="dot">●</span><span class="sys">ISCP</span></div>
@@ -221,11 +225,12 @@
 
     <!-- 4 数据底座 -->
     <div class="col w-base">
-      <div class="chead"><div class="cn">汇聚归档 · 数据底座</div><div class="ce">Part 1</div></div>
+      <div class="chead"><div class="cn">汇聚归档 · 数据底座</div></div>
       <div class="cbody base-body">
         <div class="base-conn">
-          <div class="bh">连接线（归集方式）</div>
-          <div class="bl">系统对接<br>自动归档机器人<br>数据湖 + 统一文档平台</div>
+          <div class="conn-box">系统对接</div>
+          <div class="conn-box">自动归档机器人</div>
+          <div class="conn-box">数据湖 + 统一文档平台</div>
         </div>
         <div class="base-core">
           <div class="t">档案管理系统</div>
@@ -238,7 +243,7 @@
 
     <!-- 5 核心能力 -->
     <div class="col key w-cap">
-      <div class="chead"><div class="cn">档案利用智能体平台 · 八项核心能力</div><div class="ce">支撑工具见卡片小字 · Part 3 关键</div></div>
+      <div class="chead"><div class="cn">档案利用智能体平台 · 八项核心能力</div></div>
       <div class="caps">
         <div class="cap"><div class="num">01</div><div class="cn2">多模态档案识别</div><div class="tl">OCR · 多模态大模型</div></div>
         <div class="cap"><div class="num">02</div><div class="cn2">智能标注与抽取</div><div class="tl">解析清洗 · NLP · 抽取工具</div></div>
@@ -247,14 +252,14 @@
         <div class="cap"><div class="num">05</div><div class="cn2">智能借阅</div><div class="tl">Agent借阅 · 权限模型 · 审批流</div></div>
         <div class="cap"><div class="num">06</div><div class="cn2">智能脱敏</div><div class="tl">版式解析 · Agent脱敏 · 坐标缓存</div></div>
         <div class="cap"><div class="num">07</div><div class="cn2">核验打包</div><div class="tl">人机协同 · 报表生成 · 自定义打包</div></div>
-        <div class="cap flywheel"><div class="num">08</div><div class="cn2">全程追溯与迭代</div><div class="tl">回流学习 · 可解释日志 · 负样本飞轮</div></div>
+        <div class="cap"><div class="num">08</div><div class="cn2">全程追溯与迭代</div><div class="tl">回流学习 · 可解释日志 · 负样本飞轮</div></div>
       </div>
     </div>
     <div class="arrow"><div class="a">▶</div><div class="t">赋能业务</div></div>
 
     <!-- 6 任务场景 -->
     <div class="col scene w-task">
-      <div class="chead"><div class="cn">任务场景</div><div class="ce">招标/取证任务 · Part 4</div></div>
+      <div class="chead"><div class="cn">任务场景</div></div>
       <div class="cbody task-body">
         <div class="tchip">电信招标</div>
         <div class="tchip">移动招标</div>
