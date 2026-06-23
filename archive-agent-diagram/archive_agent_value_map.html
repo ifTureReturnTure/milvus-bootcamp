@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>档案利用智能体平台业务价值流程图</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  :root{
+    --navy1:#061633; --navy2:#0a2350; --navy3:#0e2f6b;
+    --panel:rgba(18,52,110,0.55);
+    --panel2:rgba(13,42,92,0.85);
+    --line:rgba(86,150,240,0.40);
+    --cyan:#37d2ff; --cyan2:#5aa9ff;
+    --txt:#eaf2ff; --sub:#a9c4ee; --tool:#7fb0e8;
+    --gold:#ffcf6b; --red:#ff7a7a;
+  }
+  html,body{ background:#04102a; }
+  .page{
+    width:1240px; min-height:1760px;
+    background:
+      radial-gradient(1200px 600px at 80% -5%, rgba(40,120,230,0.25), transparent 60%),
+      radial-gradient(1000px 500px at 0% 100%, rgba(20,90,200,0.18), transparent 60%),
+      linear-gradient(160deg, var(--navy1), var(--navy2) 55%, var(--navy3));
+    font-family:"WenQuanYi Micro Hei","Microsoft YaHei",sans-serif;
+    color:var(--txt); padding:30px 34px 34px; position:relative; overflow:hidden;
+  }
+  /* ===== title ===== */
+  .title-wrap{ text-align:center; margin-bottom:14px; }
+  .title{ font-size:34px; font-weight:700; letter-spacing:2px;
+    background:linear-gradient(90deg,#bfe3ff,#ffffff 40%,#9fd0ff);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    text-shadow:0 2px 16px rgba(60,160,255,0.25); }
+  .title-sub{ font-size:13px; color:var(--sub); margin-top:6px; letter-spacing:3px; }
+  .title-line{ height:3px; width:380px; margin:12px auto 0;
+    background:linear-gradient(90deg,transparent,var(--cyan),transparent); border-radius:3px; }
+
+  /* ===== strategic banner ===== */
+  .banner{ margin:16px 0 18px; padding:14px 22px; border-radius:14px;
+    background:linear-gradient(90deg, rgba(255,180,70,0.14), rgba(55,210,255,0.12));
+    border:1px solid rgba(255,207,107,0.45);
+    display:flex; align-items:center; gap:16px; }
+  .banner .flag{ font-size:12px; font-weight:700; color:#04102a; background:var(--gold);
+    padding:6px 12px; border-radius:8px; white-space:nowrap; line-height:1.5; text-align:center; }
+  .banner .txt{ font-size:15px; line-height:1.7; color:#fff; }
+  .banner .txt b{ color:var(--gold); }
+
+  /* ===== body 3 columns ===== */
+  .body{ display:flex; gap:14px; align-items:stretch; }
+  .flywheel{ width:78px; position:relative; }
+  .stack{ flex:1; display:flex; flex-direction:column; gap:0; }
+  .rightbar{ width:150px; }
+
+  /* ===== layer panel ===== */
+  .layer{ position:relative; border-radius:16px; padding:16px 18px 18px;
+    background:var(--panel); border:1px solid var(--line);
+    box-shadow:inset 0 0 40px rgba(40,110,220,0.08); }
+  .layer.key{ border:1.5px solid rgba(55,210,255,0.65);
+    box-shadow:0 0 0 1px rgba(55,210,255,0.15), inset 0 0 60px rgba(55,160,255,0.12); }
+  .ltag{ position:absolute; top:-12px; left:18px; font-size:13px; font-weight:700;
+    padding:5px 14px; border-radius:8px; color:#04102a;
+    background:linear-gradient(90deg,var(--cyan),var(--cyan2)); letter-spacing:1px; }
+  .ltag.scene{ background:linear-gradient(90deg,#ffd479,#ffb24d); }
+  .lhint{ position:absolute; top:-10px; right:18px; font-size:11px; color:var(--sub);
+    background:var(--navy2); padding:3px 10px; border-radius:7px; border:1px solid var(--line); }
+  .lhead{ font-size:18px; font-weight:700; margin:6px 0 12px; color:#fff; display:flex; align-items:center; gap:10px;}
+  .lhead .en{ font-size:12px; font-weight:400; color:var(--tool); }
+
+  /* arrows between layers */
+  .flow{ text-align:center; padding:9px 0; }
+  .flow .ar{ font-size:16px; color:var(--cyan); }
+  .flow .lb{ display:inline-block; font-size:12px; color:var(--sub);
+    background:rgba(55,160,255,0.12); border:1px solid var(--line);
+    padding:3px 14px; border-radius:20px; margin-bottom:2px; }
+
+  /* ===== scene layer ===== */
+  .scene-row{ display:flex; gap:14px; }
+  .scene-main{ flex:1.3; }
+  .scene-plan{ flex:1; }
+  .box{ background:var(--panel2); border:1px solid var(--line); border-radius:12px; padding:12px 14px; height:100%;}
+  .box .bt{ font-size:14px; font-weight:700; color:var(--cyan); margin-bottom:9px; }
+  .scene-main .bt{ color:var(--gold); }
+  .chips{ display:flex; flex-wrap:wrap; gap:8px; }
+  .chip{ font-size:13px; padding:7px 12px; border-radius:9px;
+    background:linear-gradient(180deg,rgba(55,160,255,0.22),rgba(55,160,255,0.10));
+    border:1px solid rgba(90,169,255,0.5); color:#eaf4ff; }
+  .chip.lead{ background:linear-gradient(180deg,rgba(255,200,90,0.28),rgba(255,170,60,0.12));
+    border-color:rgba(255,207,107,0.6); color:#fff; font-weight:700; }
+  .chip.ghost{ background:rgba(255,255,255,0.04); border:1px dashed rgba(140,180,235,0.45); color:var(--sub); }
+  .mini{ font-size:11px; color:var(--sub); margin-top:8px; line-height:1.6;}
+
+  /* ===== capability grid ===== */
+  .caps{ display:grid; grid-template-columns:repeat(4,1fr); gap:12px; }
+  .cap{ background:linear-gradient(165deg,rgba(20,58,120,0.95),rgba(12,36,82,0.95));
+    border:1px solid rgba(90,169,255,0.45); border-radius:12px; padding:12px 13px;
+    position:relative; overflow:hidden; }
+  .cap::before{ content:""; position:absolute; left:0; top:0; bottom:0; width:4px;
+    background:linear-gradient(180deg,var(--cyan),var(--cyan2)); }
+  .cap .num{ position:absolute; right:10px; top:8px; font-size:20px; font-weight:800;
+    color:rgba(120,180,255,0.25); }
+  .cap .cn{ font-size:16px; font-weight:700; color:#fff; margin:2px 0 7px; }
+  .cap .tools{ font-size:11px; color:var(--tool); line-height:1.6; }
+  .cap .tools span{ display:inline-block; background:rgba(80,140,230,0.15);
+    border:1px solid rgba(90,160,240,0.3); border-radius:5px; padding:1px 6px; margin:2px 3px 0 0; }
+
+  /* ===== base layer ===== */
+  .base-row{ display:flex; gap:14px; align-items:center; }
+  .base-core{ flex:0 0 280px; text-align:center; padding:16px;
+    background:linear-gradient(180deg,rgba(55,160,255,0.25),rgba(20,60,130,0.9));
+    border:1.5px solid var(--cyan); border-radius:12px; }
+  .base-core .t{ font-size:17px; font-weight:700; color:#fff; }
+  .base-core .s{ font-size:11px; color:#cfe6ff; margin-top:4px; }
+  .base-conn{ flex:1; }
+  .conn-t{ font-size:12px; color:var(--sub); margin-bottom:8px; }
+
+  /* ===== resource layer ===== */
+  .res{ display:grid; grid-template-columns:repeat(6,1fr); gap:10px; }
+  .rcol{ background:var(--panel2); border:1px solid var(--line); border-radius:10px; padding:10px 9px; }
+  .rcol .rh{ font-size:13px; font-weight:700; color:var(--cyan); text-align:center;
+    padding-bottom:7px; margin-bottom:7px; border-bottom:1px solid var(--line); }
+  .rcol .ri{ font-size:10.5px; color:var(--txt); line-height:1.5; margin-bottom:5px; }
+  .rcol .ri .sys{ color:var(--gold); font-weight:700; }
+  .rcol .ri.todo{ color:var(--sub); font-style:italic; }
+
+  /* ===== right bar (audit) ===== */
+  .rightbar .vbar{ height:100%; border-radius:16px; padding:16px 8px;
+    background:linear-gradient(180deg,rgba(55,160,255,0.22),rgba(20,60,130,0.85));
+    border:1.5px solid var(--cyan); display:flex; flex-direction:column;
+    align-items:center; justify-content:flex-start; gap:14px; }
+  .vbar .vt{ writing-mode:vertical-rl; font-size:19px; font-weight:700; letter-spacing:4px; color:#fff;
+    text-shadow:0 0 12px rgba(55,210,255,0.5); margin-top:6px; }
+  .vbar .vtools{ writing-mode:vertical-rl; font-size:12px; color:#cfe6ff; letter-spacing:3px; line-height:2; }
+  .vbar .vico{ font-size:22px; color:var(--cyan); }
+
+  /* ===== flywheel left bar ===== */
+  .flywheel .fw{ position:absolute; top:120px; bottom:90px; left:50%; transform:translateX(-50%);
+    width:0; border-left:2px dashed var(--red); }
+  .flywheel .fwtxt{ position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+    writing-mode:vertical-rl; font-size:12px; color:var(--red); font-weight:700; letter-spacing:2px;
+    line-height:1.7; white-space:nowrap; text-shadow:0 0 8px rgba(255,80,80,0.3);
+    background:rgba(8,20,45,0.65); padding:8px 3px; border-radius:6px; }
+  .flywheel .fwhead{ position:absolute; top:104px; left:50%; transform:translateX(-50%);
+    font-size:14px; color:var(--red); }
+  .flywheel .fwfoot{ position:absolute; bottom:74px; left:50%; transform:translateX(-50%);
+    font-size:16px; color:var(--red); }
+  .footer{ text-align:center; font-size:11px; color:var(--sub); margin-top:16px; letter-spacing:2px;}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="title-wrap">
+    <div class="title">档案利用智能体平台业务价值流程图</div>
+    <div class="title-sub">ARCHIVE-UTILIZATION AGENT PLATFORM · BUSINESS VALUE MAP</div>
+    <div class="title-line"></div>
+  </div>
+
+  <div class="banner">
+    <div class="flag">2026<br>核心目标</div>
+    <div class="txt">用好手里的<b>大数据与语料库</b>，上线<b>档案利用智能体工具</b>，充分挖掘<b>档案资源价值</b>，为公司<b>主营业务</b>提供稳定支撑。</div>
+  </div>
+
+  <div class="body">
+
+    <!-- LEFT: negative-sample flywheel -->
+    <div class="flywheel">
+      <div class="fwhead">▲</div>
+      <div class="fw"></div>
+      <div class="fwtxt">负样本飞轮 · 人工复核/错配漏配回流为负样本集与测试集 · 持续迭代优化</div>
+      <div class="fwfoot">▼</div>
+    </div>
+
+    <!-- CENTER stack -->
+    <div class="stack">
+
+      <!-- Layer 4: scenes -->
+      <div class="layer">
+        <div class="ltag scene">顶层 · 业务场景层（Part 4）</div>
+        <div class="lhint">突出场景 · 业务价值</div>
+        <div class="lhead">业务部门使用场景与招标任务 <span class="en">Business Scenarios &amp; Tasks</span></div>
+        <div class="scene-row">
+          <div class="scene-main">
+            <div class="box">
+              <div class="bt">★ 核心样板场景：产M投标（产品市场部 · 当前主力交付）</div>
+              <div class="chips">
+                <span class="chip lead">电信招标</span>
+                <span class="chip lead">移动招标</span>
+                <span class="chip lead">联通招标</span>
+                <span class="chip lead">铁塔招标</span>
+              </div>
+              <div class="mini">业务价值：投标材料一键归集 · 订单发票智能对账 · 能力证明合规成材，显著提质增效</div>
+            </div>
+          </div>
+          <div class="scene-plan">
+            <div class="box">
+              <div class="bt">规划拓展场景（陆续探索）</div>
+              <div class="chips">
+                <span class="chip ghost">应申及认证 → 外部审计取证</span>
+                <span class="chip ghost">诉讼 → 法院等</span>
+                <span class="chip ghost">内控审计</span>
+              </div>
+              <div class="mini">复用同一平台能力，向更多业务部门延展</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flow"><div class="lb">赋能主营业务 · 业务价值输出 ▲</div></div>
+
+      <!-- Layer 3: agent platform -->
+      <div class="layer key">
+        <div class="ltag">核心层 · 档案利用智能体平台（Part 3）</div>
+        <div class="lhint">重中之重 · 关键</div>
+        <div class="lhead">八项核心能力 <span class="en">Eight Core Capabilities（支撑工具见下方小字）</span></div>
+        <div class="caps">
+          <div class="cap"><div class="num">01</div><div class="cn">多模态档案识别</div>
+            <div class="tools"><span>OCR</span><span>多模态大模型</span></div></div>
+          <div class="cap"><div class="num">02</div><div class="cn">智能标注与抽取</div>
+            <div class="tools"><span>解析清洗</span><span>NLP</span><span>抽取工具</span></div></div>
+          <div class="cap"><div class="num">03</div><div class="cn">多 Skills 协同</div>
+            <div class="tools"><span>skills</span><span>Agentic Workflow</span><span>vLLM</span></div></div>
+          <div class="cap"><div class="num">04</div><div class="cn">智能整理与对账</div>
+            <div class="tools"><span>Agent对账</span><span>语义推理</span><span>置信门控</span></div></div>
+          <div class="cap"><div class="num">05</div><div class="cn">智能借阅</div>
+            <div class="tools"><span>Agent借阅</span><span>权限模型</span><span>审批流</span></div></div>
+          <div class="cap"><div class="num">06</div><div class="cn">智能脱敏</div>
+            <div class="tools"><span>版式解析</span><span>Agent脱敏</span><span>坐标缓存</span></div></div>
+          <div class="cap"><div class="num">07</div><div class="cn">核验打包</div>
+            <div class="tools"><span>人机协同</span><span>报表生成</span><span>自定义打包</span></div></div>
+          <div class="cap" style="border-color:rgba(255,207,107,0.6)"><div class="num">08</div>
+            <div class="cn" style="color:var(--gold)">全程追溯与迭代</div>
+            <div class="tools"><span>回流学习</span><span>可解释日志</span><span>负样本飞轮</span></div></div>
+        </div>
+      </div>
+
+      <div class="flow"><div class="lb">调用档案知识 · 智能体编排 ▲</div></div>
+
+      <!-- Layer 1: base -->
+      <div class="layer">
+        <div class="ltag">底座层 · 统一数据底座（Part 1）</div>
+        <div class="lhead">统一档案管理系统底座 <span class="en">Unified Archive Data Foundation</span></div>
+        <div class="base-row">
+          <div class="base-core">
+            <div class="t">档案管理系统</div>
+            <div class="s">统一数据底座 · 大数据与语料库沉淀</div>
+          </div>
+          <div class="base-conn">
+            <div class="conn-t">归集与连接方式（连接线）：</div>
+            <div class="chips">
+              <span class="chip">系统对接</span>
+              <span class="chip">自动归档机器人</span>
+              <span class="chip">数据湖 + 统一文档平台</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flow"><div class="lb">多源汇聚 · 自动归档 ▲</div></div>
+
+      <!-- Resource layer -->
+      <div class="layer">
+        <div class="ltag">资源层 · 档案数据资源（产M投标所需证明）</div>
+        <div class="lhead">六类证明材料 · 来源系统 <span class="en">Proof Materials &amp; Source Systems</span></div>
+        <div class="res">
+          <div class="rcol"><div class="rh">供货能力</div>
+            <div class="ri">供货保证协议 <span class="sys">ISCP</span></div>
+            <div class="ri">采购平台电子化协议 <span class="sys">ISCP</span></div>
+            <div class="ri">采购合同/框架协议及订单 <span class="sys">ISCP</span></div>
+            <div class="ri">进口报关单 <span class="sys">GCM</span></div>
+            <div class="ri">发票/扫描件 <span class="sys">FOL</span></div>
+          </div>
+          <div class="rcol"><div class="rh">销售业绩</div>
+            <div class="ri">销售合同/框架合同 <span class="sys">CMS</span></div>
+            <div class="ri">发票/扫描件 <span class="sys">FOL</span></div>
+          </div>
+          <div class="rcol"><div class="rh">生产能力</div>
+            <div class="ri">自有工厂营业执照 <span class="sys">ICenter/udm</span></div>
+            <div class="ri">土地/房屋产权证明 <span class="sys">ICenter/udm</span></div>
+            <div class="ri">房屋租赁合同 <span class="sys">ISCP</span></div>
+            <div class="ri">房屋租赁发票 <span class="sys">FOL</span></div>
+            <div class="ri">生产检测设备采购合同 <span class="sys">ISCP</span></div>
+            <div class="ri">发票/扫描件 <span class="sys">FOL</span></div>
+          </div>
+          <div class="rcol"><div class="rh">专利证明</div>
+            <div class="ri">专利证书 <span class="sys">IPR</span></div>
+            <div class="ri">发明人劳动合同 <span class="sys">简谱</span></div>
+          </div>
+          <div class="rcol"><div class="rh">资质认证</div>
+            <div class="ri">电信设备进网许可证 <span class="sys">TSM/ZRS/PDM等</span></div>
+            <div class="ri">无线电发射设备型号核准证及测试报告 <span class="sys">TSM/ZRS/PDM等</span></div>
+            <div class="ri">其他各项资质证书 <span class="sys">TSM/ZRS/PDM等</span></div>
+          </div>
+          <div class="rcol"><div class="rh">售后服务能力</div>
+            <div class="ri todo">材料待补充 ……</div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /stack -->
+
+    <!-- RIGHT bar: audit & closed loop -->
+    <div class="rightbar">
+      <div class="vbar">
+        <div class="vico">◈</div>
+        <div class="vt">审计评测与数据闭环</div>
+        <div class="vtools">全程追溯与迭代 · 回流学习 · 可解释日志 · 负样本飞轮</div>
+        <div class="vico">◈</div>
+      </div>
+    </div>
+
+  </div><!-- /body -->
+
+  <div class="footer">自下而上：资源汇聚 → 底座沉淀 → 能力调用 → 业务赋能　｜　右侧贯穿：审计评测与数据闭环　｜　左侧虚线：负样本飞轮持续迭代</div>
+
+</div>
+</body>
+</html>
